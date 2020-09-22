@@ -1,6 +1,6 @@
 const express = require("express")
 
-const port = 3000
+const port = process.env.PORT || 3000
 const app = express()
 app.use(express.json({limit: "10mb"}))
 
@@ -33,7 +33,7 @@ app.post("/", (req, res) => {
         return
     }    
     res.json({ID})
-})
+}) 
 
 app.get("/:ID", (req, res) => {
     const {ID} = req.params
